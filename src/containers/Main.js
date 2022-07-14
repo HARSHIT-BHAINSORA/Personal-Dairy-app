@@ -15,12 +15,12 @@ export class Main extends Component {
   }
   render() {
     const { addItem, diaryItems, deleteItem } = this.props;
-    const { show, activeItem } = this.state
+    const { show, activeItem } = this.state;
     return (
       <div>
         <div className="grid-container">
           <div className="diary-app">
-            <h1>Dear Diary...</h1>
+            <h1>Personal Diary</h1>
             <DiaryForm addItem={(item) => addItem(item)} />
           </div>
           <div className="diary-app" style={{ paddingTop: 20 }}>
@@ -67,7 +67,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
-  deleteItem: (id) => dispatch(deleteItem(id))
+  deleteItem: (id) => dispatch(deleteItem(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
