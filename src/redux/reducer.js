@@ -17,19 +17,21 @@ const diaryReducer = (state = initialState, action) => {
         date: action.payload.date,
         text: action.payload.text,
       };
-      let newDiaryItems = [item, ...state.diaryItems]
+      let newDiaryItems = [item, ...state.diaryItems];
       newDiaryItems = newDiaryItems.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date)
-      })
+        return new Date(b.date) - new Date(a.date);
+      });
       return {
         ...state,
         diaryItems: newDiaryItems,
       };
     case DELETE_ITEM:
-        return {
-            ...state,
-            diaryItems: state.diaryItems.filter((item) => item.id !== action.payload)
-        }
+      return {
+        ...state,
+        diaryItems: state.diaryItems.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
     default:
       return state;
   }

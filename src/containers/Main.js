@@ -22,13 +22,14 @@ export class Main extends Component {
           <div className="diary-app">
             <h1>Personal Diary</h1>
             <DiaryForm addItem={(item) => addItem(item)} />
+            {/* getitems */}
           </div>
           <div className="diary-app" style={{ paddingTop: 20 }}>
             {diaryItems.length > 0 ? (
               diaryItems.map((item) => {
                 return (
                   <DiaryItem
-                    deleteItem={(id) => deleteItem(id)}
+                    deleteItem={(id) => deleteItem(id)} // getid
                     showModal={(item) =>
                       this.setState({ show: true, activeItem: item })
                     }
@@ -61,10 +62,12 @@ export class Main extends Component {
   }
 }
 
+// receving the info from the reduces.
 const mapStateToProps = (state) => ({
   diaryItems: state.diaryItems,
 });
 
+// set data
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
   deleteItem: (id) => dispatch(deleteItem(id)),
