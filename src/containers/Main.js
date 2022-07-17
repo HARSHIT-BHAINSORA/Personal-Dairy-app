@@ -6,6 +6,7 @@ import DiaryItem from "../components/DiaryItem";
 import { Modal } from "react-bootstrap";
 
 export class Main extends Component {
+  // state
   constructor() {
     super();
     this.state = {
